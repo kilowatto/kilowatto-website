@@ -1,0 +1,150 @@
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <!-- ...código del header... -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center space-x-3">
+          <svg
+            class="h-8 w-8 text-orange-500"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M15 4H14L12.5 6H10.5L10 5L9.5 4H7.5L7 5L5 8V11H2V15H4V18H6V15H17.25L18 14.5V11.5L19.5 9.5L20 8L18 4H15Z"
+            ></path>
+          </svg>
+          <div>
+            <h1 class="text-xl font-bold text-gray-900">Nombre del Sitio</h1>
+            <p class="text-xs text-gray-500">Un subtítulo descriptivo</p>
+          </div>
+        </a>
+      </div>
+      <nav class="hidden md:flex md:items-center md:space-x-8">
+        <a
+          href="/"
+          class="text-gray-600 hover:text-orange-500 font-medium transition-colors duration-200"
+          >Inicio</a
+        >
+        <a
+          href="/productos"
+          class="text-gray-600 hover:text-orange-500 font-medium transition-colors duration-200"
+          >Productos</a
+        >
+        <a
+          href="/servicios"
+          class="text-gray-600 hover:text-orange-500 font-medium transition-colors duration-200"
+          >Servicios</a
+        >
+        <a
+          href="/nosotros"
+          class="text-gray-600 hover:text-orange-500 font-medium transition-colors duration-200"
+          >Nosotros</a
+        >
+        <a
+          href="/blog"
+          class="text-gray-600 hover:text-orange-500 font-medium transition-colors duration-200"
+          >Blog</a
+        >
+        <a
+          href="/galeria"
+          class="text-gray-600 hover:text-orange-500 font-medium transition-colors duration-200"
+          >Galería</a
+        >
+        <a
+          href="/contacto"
+          class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200"
+          >Contacto</a
+        >
+      </nav>
+      <div class="md:hidden flex items-center">
+        <label
+          for="mobile-menu-toggle"
+          class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 cursor-pointer"
+        >
+          <span class="sr-only">Abrir menú principal</span>
+          <svg
+            class="h-6 w-6"
+            id="menu-open-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg
+            class="h-6 w-6 hidden"
+            id="menu-close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </label>
+      </div>
+    </div>
+  </div>
+  <input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
+  <div
+    class="hidden md:hidden peer-checked:block bg-white border-t border-gray-200"
+  >
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a
+        href="/"
+        class="text-gray-600 hover:bg-orange-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+        >Inicio</a
+      >
+      <a
+        href="/productos"
+        class="text-gray-600 hover:bg-orange-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+        >Productos</a
+      >
+      <a
+        href="/servicios"
+        class="text-gray-600 hover:bg-orange-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+        >Servicios</a
+      >
+      <a
+        href="/nosotros"
+        class="text-gray-600 hover:bg-orange-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+        >Nosotros</a
+      >
+      <a
+        href="/blog"
+        class="text-gray-600 hover:bg-orange-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+        >Blog</a
+      >
+      <a
+        href="/galeria"
+        class="text-gray-600 hover:bg-orange-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+        >Galería</a
+      >
+      <a
+        href="/contacto"
+        class="bg-orange-500 text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-2"
+        >Contacto</a
+      >
+    </div>
+  </div>
+  <style>
+    #mobile-menu-toggle:checked ~ div #menu-open-icon {
+      display: none;
+    }
+    #mobile-menu-toggle:checked ~ div #menu-close-icon {
+      display: block;
+    }
+  </style>
+</header>

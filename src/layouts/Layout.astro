@@ -1,22 +1,46 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+// src/layouts/Layout.astro
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Aside from "../components/Aside.astro";
+interface Props {
+  title: string;
+}
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+    <Header title={title} />
+
+    <!-- CORRECCIÓN AQUÍ: Se añade la estructura de columnas -->
+    <main class="flex-1">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div class="flex flex-col md:flex-row gap-8">
+          <!-- El slot ahora está dentro de la estructura -->
+          <slot />
+
+          <!-- El Aside se renderiza al lado. El `slot="aside"` ya no es necesario -->
+          <Aside />
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>

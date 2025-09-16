@@ -1,0 +1,25 @@
+{
+  "name": "Sitio de Esteban Rey",
+  "short_name": "Kilowatto",
+  "description": "Una mirada a la tecnología y la innovación.",
+  "lang": "es-MX",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#f97316",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

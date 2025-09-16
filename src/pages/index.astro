@@ -1,11 +1,27 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Página de Inicio">
+  <!-- Aquí pones el contenido específico de tu página de inicio -->
+  <!-- 2. Este contenido irá al slot por defecto -->
+  <article class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold">Título del Artículo Principal</h1>
+    <p class="text-gray-500 mt-2">Publicado el 16 de septiembre de 2025</p>
+    <div class="prose lg:prose-xl mt-6">
+      <p>
+        Este es el contenido principal de la página. Todo lo que pongas aquí,
+        que no tenga el atributo `slot`, se inyectará en el `<slot />` por
+        defecto de nuestro layout.
+      </p>
+      <p>
+        Esto nos da una flexibilidad enorme. Podemos tener páginas con mucho
+        texto, galerías de imágenes o cualquier otra cosa, y el layout se
+        adaptará perfectamente.
+      </p>
+    </div>
+  </article>
 </Layout>
