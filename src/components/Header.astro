@@ -1,4 +1,6 @@
 ---
+import MeltingLink from "./MeltingLink.astro";
+
 // Script de frontmatter vacío
 ---
 
@@ -6,6 +8,17 @@
   /* Importamos los estilos a prueba de balas */
   @import "../styles/header-nav.css";
 </style>
+
+<style>
+  #mobile-menu-toggle:checked ~ header #menu-open-icon {
+    display: none;
+  }
+  #mobile-menu-toggle:checked ~ header #menu-close-icon {
+    display: block;
+  }
+</style>
+
+<input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
 
 <header class="bg-white shadow-md sticky top-0 z-50">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,6 +42,36 @@
             <p class="text-xs text-gray-500">Kilowatto</p>
           </div>
         </a>
+      </div>
+      <div class="md:hidden flex items-center">
+        <label for="mobile-menu-toggle" class="cursor-pointer p-2">
+          <svg
+            id="menu-open-icon"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg
+            id="menu-close-icon"
+            class="h-6 w-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </label>
       </div>
     </div>
 
@@ -184,52 +227,63 @@
 
       <!-- ======================================================= -->
       <!-- ============== INICIO DEL EASTER EGG ================== -->
-      <!-- ======================================================= -->
-      <a
-        href="#"
-        class="nav-item h-full flex items-center"
-        id="contact-melt-button"
-        style="--item-width: 130px; --item-offset-left: 620px;"
-      >
-        <div class="content-wrapper">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon-letter"
-            ><path
-              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-            ></path><polyline points="22,6 12,13 2,6"></polyline></svg
-          >
-          <span>Contáctame</span>
-        </div>
-        <div class="drips-container">
-          <i class="drip"></i><i class="drip"></i><i class="drip"></i><i
-            class="drip"></i><i class="drip"></i><i class="drip"></i><i
-            class="drip"></i><i class="drip"></i><i class="drip"></i><i
-            class="drip"></i>
-        </div>
-      </a>
-      <!-- ======================================================= -->
+      <!-- ======================================================= 
+
+      <MeltingLink id="contact-melt-button" href="/es/contact">
+        Contáctame
+      </MeltingLink>
+      
+       ======================================================= -->
       <!-- ================ FIN DEL EASTER EGG =================== -->
       <!-- ======================================================= -->
     </nav>
-
-    <div class="md:hidden flex items-center">
-      <!-- Contenido del menú móvil -->
-    </div>
   </div>
 </header>
 
-<input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
 <div
   class="hidden md:hidden peer-checked:block bg-white border-t border-gray-200"
 >
-  <!-- Links del menú móvil -->
+  <div class="pt-2 pb-3 space-y-1">
+    <a
+      href="/bio"
+      class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300"
+      >Bio</a
+    >
+    <a
+      href="/ignia-cloud"
+      class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300"
+      >Ignia Cloud</a
+    >
+    <a
+      href="/cereza-soft"
+      class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300"
+      >Cereza Soft</a
+    >
+    <a
+      href="/frida-cafe"
+      class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300"
+      >Frida Café</a
+    >
+    <a
+      href="/orange-rhino"
+      class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300"
+      >Orange Rhino</a
+    >
+    <a
+      href="/finsus"
+      class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300"
+      >Finsus</a
+    >
+    <a
+      href="/otros-proyectos"
+      class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300"
+      >Otros Proyectos</a
+    >
+    <a
+      href="#"
+      id="contact-melt-button-mobile"
+      class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300"
+      >Contáctame</a
+    >
+  </div>
 </div>

@@ -1,0 +1,99 @@
+---
+// Se pueden definir props para hacerlo aún más reutilizable.
+const {
+  text = "liga increíble",
+  color = "#32DFEC",
+  duration = 2,
+  reverseDelay = 5,
+} = Astro.props;
+---
+
+<a href="#" class="melt-text" style={`--melt-color: ${color};`}>{text}</a>
+
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<svg
+  style="visibility: hidden; position: absolute;"
+  width="0"
+  height="0"
+  xmlns="http://www.w3.org/2000/svg"
+  version="1.1"
+>
+  <defs>
+    <filter id="melt-filter">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.01 0.04"
+        numOctaves="1"
+        result="turbulence"
+        seed="0"></feTurbulence>
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="turbulence"
+        scale="0"
+        xChannelSelector="R"
+        yChannelSelector="R"
+        result="displacement"></feDisplacementMap>
+      <feGaussianBlur in="displacement" stdDeviation="10" result="blur"
+      ></feGaussianBlur>
+      <feColorMatrix
+        in="blur"
+        mode="matrix"
+        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+        result="goo"></feColorMatrix>
+    </filter>
+  </defs>
+</svg>
+
+<style>
+  .melt-text {
+    font-size: 4rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--melt-color);
+    padding: 1rem;
+    filter: url("#melt-filter");
+  }
+</style>
+
+<script define:vars={{ duration, reverseDelay }}>
+  // El evento 'astro:page-load' asegura que el script se ejecute en cada navegación de página en Astro.
+  document.addEventListener("astro:page-load", () => {
+    const meltingLinks = document.querySelectorAll(".melt-text");
+    const displacementMap = document.querySelector(
+      "#melt-filter feDisplacementMap"
+    );
+
+    if (!meltingLinks.length || !displacementMap) return;
+
+    meltingLinks.forEach((link) => {
+      let reverseTimer;
+
+      // Como GSAP se cargó globalmente desde el CDN, ya está disponible como 'gsap'.
+      // No es necesario importarlo.
+      const timeline = gsap.timeline({ paused: true });
+
+      timeline.to(displacementMap, {
+        attr: { scale: 50 },
+        duration: duration,
+        ease: "power1.inOut",
+      });
+
+      link.addEventListener("mouseenter", () => {
+        clearTimeout(reverseTimer);
+        timeline.play();
+
+        reverseTimer = setTimeout(() => {
+          timeline.reverse();
+        }, reverseDelay * 1000);
+      });
+
+      link.addEventListener("mouseleave", () => {
+        clearTimeout(reverseTimer);
+        timeline.reverse();
+      });
+    });
+  });
+</script>
