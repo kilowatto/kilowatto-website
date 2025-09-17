@@ -8,19 +8,163 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Página de Inicio">
   <!-- Aquí pones el contenido específico de tu página de inicio -->
   <!-- 2. Este contenido irá al slot por defecto -->
-  <article class="bg-white p-6 md:p-8 rounded-lg shadow-md">
-    <h1 class="text-3xl font-bold">Título del Artículo Principal</h1>
-    <p class="text-gray-500 mt-2">Publicado el 16 de septiembre de 2025</p>
-    <div class="prose lg:prose-xl mt-6">
+  <article class="bg-white p-6 md:p-10 rounded-2xl shadow-md">
+    <!-- HERO -->
+    <header class="max-w-4xl">
+      <h1
+        class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
+      >
+        🚀 Bienvenid@s a mi mundo: <span class="text-orange-500"
+          >Orange Rhino</span
+        > 🦏🔥
+      </h1>
+      <p class="text-gray-500 mt-2">Publicado el 16 de septiembre de 2025</p>
+    </header>
+
+    <!-- CONTENT WRAPPER: use prose for nice typography, add utility to make floats look good -->
+    <div class="prose prose-gray lg:prose-lg xl:prose-xl mt-8 max-w-none">
+      <!-- FIGURE 1 (right) with shape-outside for elegant wrap -->
+      <figure
+        class="md:float-right md:ml-6 md:mb-4 w-full md:w-[min(40%,420px)] [shape-outside:inset(0_round_1rem)] [shape-margin:12px]"
+      >
+        <img
+          src="https://placehold.co/720x900"
+          alt="Retrato Orange Rhino"
+          class="w-full h-auto rounded-2xl shadow-md"
+        />
+        <figcaption class="text-sm text-gray-500 mt-2">
+          Orange Rhino en modo construyendo + cantando 🎤🦏
+        </figcaption>
+      </figure>
+
       <p>
-        Este es el contenido principal de la página. Todo lo que pongas aquí,
-        que no tenga el atributo `slot`, se inyectará en el `<slot />` por
-        defecto de nuestro layout.
+        ¡Hola! Soy Esteban Rey, mejor conocido como <strong>Orange Rhino</strong
+        >. 🌟 Aquí no solo construyo tecnología; también construyo <em
+          >sueños</em
+        > y equipos de alto desempeño. 💡 Combino estrategia, seguridad y performance
+        para que las ideas despeguen con <strong>energía</strong>, <strong
+          >disciplina</strong
+        > y un toque de <em>locura creativa</em>. 🤘 Me mueven los retos
+        grandes, los que requieren pensar como ingeniero y cantar como tenor:
+        con precisión y emoción. 🎶
       </p>
+
+      <!-- FIGURE 2 (left) vertical, different size -->
+      <figure
+        class="md:float-left md:mr-6 md:mb-4 w-full md:w-[min(36%,360px)] [shape-outside:inset(0_round_1rem)] [shape-margin:12px]"
+      >
+        <img
+          src="https://placehold.co/600x1000"
+          alt="Arquitecturas resilientes"
+          class="w-full h-auto rounded-2xl shadow-md"
+        />
+        <figcaption class="text-sm text-gray-500 mt-2">
+          Arquitecturas Always On, multi-región y multicloud ⚡
+        </figcaption>
+      </figure>
+
       <p>
-        Esto nos da una flexibilidad enorme. Podemos tener páginas con mucho
-        texto, galerías de imágenes o cualquier otra cosa, y el layout se
-        adaptará perfectamente.
+        Desde los escenarios de la ópera hasta los <strong>data centers</strong>
+        🖥️, mi vida cruza arte y ciencia. Lidero proyectos de infraestructura, seguridad
+        y desarrollo con un objetivo claro: que tu plataforma esté <strong
+          >Always On</strong
+        > ⚡, resiliente y lista para crecer sin fricción. Diseño arquitecturas multirregión,
+        multicloud y con costos transparentes. Las métricas, los KPIs y la <em
+          >observabilidad</em
+        > no son extras: son parte del ADN de cómo operamos. 📊
+      </p>
+
+      <!-- Make sure floats don't break mobile layout -->
+      <div class="clear-both md:hidden"></div>
+
+      <!-- FIGURE 3 (right) wide landscape with wrap -->
+      <figure
+        class="md:float-right md:ml-6 md:mb-4 w-full md:w-[min(42%,520px)] [shape-outside:inset(0_round_1rem)] [shape-margin:12px]"
+      >
+        <img
+          src="https://placehold.co/960x540"
+          alt="Ignia Cloud – La Nube Naranja"
+          class="w-full h-auto rounded-2xl shadow-md"
+        />
+        <figcaption class="text-sm text-gray-500 mt-2">
+          Ignia Cloud: potencia + transparencia #LaNubeNaranja 🟧
+        </figcaption>
+      </figure>
+
+      <p>
+        En LinkedIn 💼 comparto sin filtros sobre <strong>innovación</strong>, <strong
+          >ciberseguridad</strong
+        >, <strong>resiliencia</strong> y el poder del <strong
+          >servicio al cliente</strong
+        > ❤️. Una cultura de servicio puede impulsar más que cualquier fuerza de
+        ventas cuando haces que cada interacción sea <em>memorable</em> y medible.
+        Sí, me verás hablando de NPS y de cómo convertir feedback en roadmap.
+      </p>
+
+      <p>
+        🚀 En <strong>Ignia Cloud</strong> demostramos que México puede liderar la
+        nube con infraestructura poderosa, transparencia brutal de costos y un equipo
+        que vive para innovar. Nuestras implementaciones combinan <em
+          >automatización</em
+        >, <em>seguridad por diseño</em> (ISO/NIST) y <em
+          >observabilidad end‑to‑end</em
+        >. Si buscas escalar, optimizar o migrar sin drama, estás en casa. 🧡
+      </p>
+
+      <!-- QUOTE -->
+      <blockquote
+        class="not-prose my-8 p-5 rounded-xl bg-orange-50 border border-orange-200"
+      >
+        <p class="m-0 text-orange-900 text-lg">
+          <strong>Mantra Rhino:</strong> "Velocidad con propósito, seguridad sin
+          fricción y experiencia de usuario que enamora." 💥
+        </p>
+      </blockquote>
+
+      <!-- MEDIA RAIL (no floats) for a clean collage under text -->
+      <section class="not-prose grid grid-cols-2 md:grid-cols-3 gap-4 my-8">
+        <img
+          src="https://placehold.co/420x280"
+          alt="Workshop con clientes"
+          class="rounded-xl shadow object-cover w-full aspect-[3/2]"
+        />
+        <img
+          src="https://placehold.co/280x420"
+          alt="Cultura y liderazgo"
+          class="rounded-xl shadow object-cover w-full aspect-[2/3]"
+        />
+        <img
+          src="https://placehold.co/520x320"
+          alt="Automatización"
+          class="rounded-xl shadow object-cover w-full aspect-[16/10] hidden md:block"
+        />
+      </section>
+
+      <!-- HIGHLIGHTS -->
+      <section class="not-prose grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-200 shadow-sm">
+          <h3 class="font-semibold">🔒 Seguridad por diseño</h3>
+          <p class="text-sm text-gray-700">
+            ISO 27001, NIST, FIRST. Estrategia, gobierno y ejecución sin frenar
+            al dev.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-200 shadow-sm">
+          <h3 class="font-semibold">🌩️ Arquitecturas Always On</h3>
+          <p class="text-sm text-gray-700">
+            Multi-región, multi-cloud, DRP y observabilidad real, no de adorno.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50 border border-gray-200 shadow-sm">
+          <h3 class="font-semibold">📈 KPIs que importan</h3>
+          <p class="text-sm text-gray-700">
+            Métricas claras, tableros accionables y costos predecibles.
+          </p>
+        </div>
+      </section>
+
+      <p class="mt-10 font-bold text-center text-xl">
+        🌟 ¡Bienvenid@ a la manada naranja! Convirtamos ideas en impacto. 🌟
       </p>
     </div>
   </article>
